@@ -6,9 +6,9 @@ const router = express.Router()
 const controller = require('./home.ctrl')
 
 // Application View ( Setting )
-router.get('/', controller.home)
-
-router.get('/login', controller.login)
+router.get('/', controller.output.home)
+router.get('/login', controller.output.login)
+router.post('/login', controller.process.login)
 
 // Export
 module.exports = router
