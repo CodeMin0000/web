@@ -40,10 +40,13 @@
     <!--Resources-->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/index.css">
-    <script src="/js/home/login.js"></script>
+    <script src="/js/home/login.js" defer></script>
     <!--// Resources-->
 </head>
 <body>
-    로그인
+        <input class="login-form__id" type="text" placeholder="ID" title="ID를 입력해주세요.">
+        <input class="login-form__password" type="password" placeholder="Password" title="비밀번호를 입력해주세요.">
+        <button class="login-form__submit" type="submit">로그인</button>
+    </form>
 </body>
 </html>
