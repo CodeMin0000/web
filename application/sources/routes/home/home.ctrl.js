@@ -1,11 +1,8 @@
 'use strict'
 
-const users = {
-    id: ['asdf'],
-    password: ['asdf']
-}
-
 // Divide Controller
+const userStorage = require('../../models/userstorage')
+
 const output = {
     home: (req, res) => {
         res.render('application/index')
@@ -20,20 +17,22 @@ const process = {
     login: (req, res) => {
         const id = req.body.id,
               password = req.body.password
+        
+        const users = (userStorage.getUsers('id', 'password'))
+
+        const response = {}
 
         if (users.id.includes(id)) {
             const idx = users.id.indexOf(id)
             if (users.password[idx] === password) {
-                return res.json ({
-                    success: true
-                })
+                response.success = true
+                return res.json(response)
             }
         }
 
-        return res.json({
-            success: false,
-            msg: 'Failed'
-        })
+        response.success = false
+        response.msg = 'Failed'
+        return res.json(response)
     }
 }
 
